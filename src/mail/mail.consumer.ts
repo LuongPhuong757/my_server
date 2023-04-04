@@ -20,7 +20,11 @@ export class MailConsumer {
 
   @Process('sendMail')
   async sendMail(job: Job<{ mailOptions: any }>) {
+    try {
     await this.transporter.sendMail(job.data.mailOptions)
     return true
+    }catch(err) {
+      console.log(err)
+    }
   }
 }
