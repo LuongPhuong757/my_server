@@ -1,8 +1,7 @@
-import { Body, CacheInterceptor, CacheKey, CacheTTL, CACHE_MANAGER, ClassSerializerInterceptor, Controller, Get, HttpCode, HttpStatus, Inject, Param, Post, Req, UseGuards, UseInterceptors } from "@nestjs/common"
+import { Body, ClassSerializerInterceptor, Controller, Get, HttpCode, HttpStatus, Inject, Param, Post, Req, UseGuards, UseInterceptors } from "@nestjs/common"
 import { Reflector } from "@nestjs/core"
 import { AuthGuard } from "@nestjs/passport"
 import { ApiBearerAuth, ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger"
-import { Cache } from "cache-manager"
 // import { Cache } from "cache-manager"
 import { User } from "entities/user.entity"
 import { BaseApiResponse, SwaggerBaseApiResponse } from "src/shared/dtos/base-api-response.dto"
@@ -21,15 +20,10 @@ import { JwtRefreshGuard } from "./guards/jwt-refresh.guard"
 export class AuthController {
   constructor(
     private readonly authService: AuthService,
-    private readonly reflector: Reflector,
-    @Inject(CACHE_MANAGER) private readonly cacheManager: Cache,
   ) {}
 
 
   @Post('healh-check')
-  @CacheKey('custom_key')
-  @UseInterceptors(CacheInterceptor)
-  @CacheTTL(20)
   @ApiOperation({
     summary: 'User signup first step API'
   })
@@ -44,9 +38,6 @@ export class AuthController {
   }
 
   @Post('test')
-  @CacheKey('custom_key')
-  @UseInterceptors(CacheInterceptor)
-  @CacheTTL(20)
   @ApiOperation({
     summary: 'User signup first step API'
   })
