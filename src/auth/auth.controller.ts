@@ -35,6 +35,8 @@ export class AuthController {
     if (userName == '1') return 'oke 1'
     // return { data: registeredUser, meta: {} }
     console.log("Feature 1")
+    console.log("Feature 2")
+    console.log("Feature 2.1")
     return 'oke'
   }
 
