@@ -46,6 +46,7 @@ export class AuthController {
   ){
    console.log('this')
    console.log('Feature 1.1')
+   console.log('Master')
     // return await this.cacheManager.get('custom_key')
   }
 
