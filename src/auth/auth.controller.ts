@@ -36,6 +36,7 @@ export class AuthController {
     // return { data: registeredUser, meta: {} }
     console.log("Feature 1")
     console.log("Feature 2")
+    console.log("Feature 2.1")
     return 'oke'
   }
 
