@@ -40,6 +40,7 @@ export class AuthController {
     // const registeredUser = await this.authService.signup(dto)
     if (userName == '1') return 'oke 1'
     // return { data: registeredUser, meta: {} }
+    console.log("Feature 1")
     return 'oke'
   }
 
